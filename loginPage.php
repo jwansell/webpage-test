@@ -1,3 +1,12 @@
+<?php
+session_start(); // Always remember to start the session 
+// Below we are checking if the session has been created before and if it has that it is set to true!
+if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true) {
+    header('Location: index.html'); // This redirects the user to the home page if they are already logged in!
+}
+// We must tell php that we are done executing php code by closing the php script using the symbol below!
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
