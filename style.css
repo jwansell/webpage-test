@@ -1,1 +1,89 @@
+	body{
+		background-color: sandybrown;
+	}
 
+	.top-bar{
+		background-color: saddlebrown;
+		height: 120px;
+		margin-bottom: 10px;
+	}
+
+	.header{
+		font-size: 2em;
+		color: floralwhite;
+		font-weight: bold;
+		font-family: sans-serif;
+		padding: 20px;
+	}
+
+	.main-content-body{
+		width: 500px;
+		padding: 20px;
+		margin: auto;
+		text-align: center;
+		font-size: 1.5em;
+		font-family: sans-serif;
+		color: #FFD5B0;
+	}
+
+	ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: saddlebrown;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight:  bold;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #EA6D00;
+}
+
+.main-content-image{
+	height: 600px;
+	text-align: center;
+}
+
+.main-image{
+	height: 100%;
+	margin: auto;
+}
+
+.logout-link{
+	color: white;
+	font-family: sans-serif;
+	font-weight: bold;
+}
+
+.login-link{
+	color: white;
+	font-family: sans-serif;
+	font-weight: bold;
+	margin: auto;
+}
+
+.username-display{
+	color: white;
+	text-align: right;
+	font-family: sans-serif;
+	font-weight: bold;
+	padding: 0px 30px;
+
+}

@@ -1,5 +1,5 @@
 <?php 
-$validUsername = 'admin';
+$validUsername = 'Admin';
 $validPassword = 'password';
 session_start();
 
