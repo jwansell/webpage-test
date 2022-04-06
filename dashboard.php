@@ -18,6 +18,22 @@ $loggedin = false;
 		font-family: sans-serif;
 		color: #FFD5B0;
 		background-color: #E09655;
+		
+	}
+
+	.dashboard-messages {
+		
+	}
+
+	.user-data{
+		width: 500px;
+		padding: 20px;
+		margin: auto;
+		text-align: center;
+		font-size: 1.5em;
+		font-family: sans-serif;
+		color: #FFD5B0;
+		background-color: #E09655;
 	}
 </style>
 <title> User Dashboard </title>
@@ -45,14 +61,28 @@ $loggedin = false;
 	</ul> 
 </div>
 <div class="dashboard-body">
-	<h1>Welcome, Admin!</h1>
+	<h1>Welcome, User!</h1>
 	<h2> Sandwich Stats: </h2>
 	<p>Date Joined: 23/02/2020</p>
 	<p>Sandwiches eaten: 3406</p>
 	<p>Hours spent online: 28</p>
 	<p>Posts made: 41000</p>
 </div>
+<div class="user-data">
+	<h2> User Information: </h2>
+<?php 
+$database = json_decode(file_get_contents('./contact.json'), true);
+	
+foreach ($database as $value) {
 
-<script src="app.js"></script>
+	echo "<p>First Name: " . $value['fname'] . "</p>";
+	echo "<p>Last Name: " . $value['lname'] . "</p>"; 
+	echo "<p>Email Address: " . $value['email'] . "</p>";
+}
+?>	
+
+</div>
+
+<script src="dashboardfunction.js"></script>
 </body>
 </html>

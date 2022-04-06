@@ -15,8 +15,16 @@ function onSubmit(){
 
 	fetch('http://localhost:8000/login.php', options)
 	    .then(res => res.json())
-	    .then(res => console.log(res));
+	    .then(res => {
+	    	window.location.reload();
+	    });
 }
 
 var button = document.getElementById('submit');
 button.addEventListener('click', onSubmit);
+
+window.addEventListener('keydown', function (event) {
+	if (event.keyCode == 13) {
+		onSubmit();
+	}
+});
