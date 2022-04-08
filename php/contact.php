@@ -16,7 +16,7 @@ $email = $_POST['email'];
 $message = $_POST['message'];
 
 
-$database = json_decode(file_get_contents('./contact.json'), true);
+$database = json_decode(file_get_contents('../json/contact.json'), true);
 
 $database[] = [
 	'fname' => $fname,
@@ -34,4 +34,4 @@ echo json_encode([
 	'message' => $message,
 ]);
 
-file_put_contents('./contact.json', json_encode($database));
+file_put_contents('../json/contact.json', json_encode($database));

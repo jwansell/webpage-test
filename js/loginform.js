@@ -13,7 +13,7 @@ function onSubmit(){
     	body: data,
 	};
 
-	fetch('http://localhost:8000/login.php', options)
+	fetch('http://localhost:8000/php/login.php', options)
 	    .then(res => res.json())
 	    .then(res => {
 	    	window.location.reload();

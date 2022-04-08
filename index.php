@@ -7,7 +7,7 @@ $loggedin = false;
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 <title> Sandwichland Home </title>
 </head>
 
@@ -15,18 +15,18 @@ $loggedin = false;
 <div class="top-bar">
 	<div class="header">Welcome to sandwichland!</div>
 	<ul>
-		<li><a class="active" href="index.php">Index</a></li>
+		<li><a class="active" href="../index.php">Index</a></li>
 		<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) {
-			echo '<li><a href="dashboard.php">Dashboard</a></li>';
+			echo '<li><a href="php/dashboard.php">Dashboard</a></li>';
 			} ?>
-		<li><a href="contactus.php">Contact</a></li>
+		<li><a href="php/contactus.php">Contact</a></li>
 		<?php 
 		if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) { // If the user is logged in
-    		echo '<li><a class= "logout-link" href="/logout.php">Logout</a></li>';
+    		echo '<li><a class= "logout-link" href="php/logout.php">Logout</a></li>';
     		$loggedin = true; // Show an anchor tag with Text Logout and link to `logout.php`
 		}
 		else {
-			echo '<li><a class= "login-link" href="/loginPage.php">Login</a></li>';
+			echo '<li><a class= "login-link" href="php/loginPage.php">Login</a></li>';
 		}
   		?>
 		<?php if ($loggedin) { echo '<p class= "username-display">' . $_SESSION['username']; } ?>
@@ -43,6 +43,5 @@ $loggedin = false;
 	<p>There are lots of sandwiches! Like... So many sandwiches. I don't think we've even come up with every sandwich yet. If you're looking for a life goal, there it is, I suppose. </p>
 </div>
 
-<script src="app.js"></script>
 </body>
 </html>

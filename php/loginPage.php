@@ -4,7 +4,7 @@ $loggedin = false;
  // Always remember to start the session 
 // Below we are checking if the session has been created before and if it has that it is set to true!
 if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true) {
-    header('Location: index.php');
+    header('Location: ../index.php');
   $loggedin = true; // This redirects the user to the home page if they are already logged in!
 }
 
@@ -17,7 +17,8 @@ if($loggedin) { // If the user is logged in
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="style.css">
+  <title>Log-In</title>
+<link rel="stylesheet" href="../css/style.css">
 <style>
 
 .login-heading{
@@ -74,12 +75,12 @@ span.psw {
 	<div class="top-bar">
 		<div class="header">Log-in</div>
 	<ul>
-  		<li><a href="index.php">Index</a></li>
+  		<li><a href="../index.php">Index</a></li>
       <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) {
       echo '<li><a href="dashboard.php">Dashboard</a></li>';
       } ?>
   		<li><a href="contactus.php">Contact</a></li>
-  		<li><a class="active" href="login.html">Login</a></li>
+  		<li><a class="active" href="loginPage.php">Login</a></li>
       <?php if ($loggedin) { echo '<p class= "username-display">' . $_SESSION['username']; } ?>
 	</ul> 
 </div>
@@ -98,6 +99,6 @@ span.psw {
     <button id="submit">Login</button>
   </div>
 
-<script src="loginform.js"></script>
+<script src="../js/loginform.js"></script>
 </body>
 </html>

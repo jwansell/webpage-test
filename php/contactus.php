@@ -7,8 +7,9 @@ $loggedin = false;
 
 <!DOCTYPE html>
 <html lang="en">
+<title>Contact Us!</title>
 <head>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../css/style.css">
 <style>
 
 .contact {
@@ -60,18 +61,18 @@ input[type=submit]:hover {
 <div class="top-bar">
 	<div class="header">Get in contact</div>
 	<ul>
-  		<li><a href="index.php">Index</a></li>
+  		<li><a href="../index.php">Index</a></li>
   		<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) {
 			echo '<li><a href="dashboard.php">Dashboard</a></li>';
 			} ?>
   		<li><a class="active" href="contactus.php">Contact</a></li>
   		<?php 
 		if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) { // If the user is logged in
-    		echo '<li><a class= "logout-link" href="/logout.php">Logout</a></li>';
+    		echo '<li><a class= "logout-link" href="./logout.php">Logout</a></li>';
     		$loggedin = true; // Show an anchor tag with Text Logout and link to `logout.php`
 		}
 		else {
-			echo '<li><a class= "login-link" href="/loginPage.php">Login</a></li>';
+			echo '<li><a class= "login-link" href="./loginPage.php">Login</a></li>';
 		}
   		?>
   		<?php if ($loggedin) { echo '<p class= "username-display">' . $_SESSION['username']; } ?>
@@ -98,6 +99,6 @@ input[type=submit]:hover {
     <button id="submit">Submit</button>
 </div>
 
-<script src="contactform.js"></script>
+<script src="../js/contactform.js"></script>
 </body>
 </html>

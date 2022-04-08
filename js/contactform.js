@@ -17,7 +17,7 @@ function onSubmit(){
     	body: data,
 	};
 
-	fetch('http://localhost:8000/contact.php', options)
+	fetch('http://localhost:8000/php/contact.php', options)
 	    .then(res => res.json())
 	    .then(res => console.log(res));
 }

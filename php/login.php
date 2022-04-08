@@ -1,24 +1,12 @@
 <?php 
 
-function authenticateUsernamePassword($record) {
-
-	if(true) {
-		return true;
-	}
-
-	return false;
-}
-
-
-//$validUsername = 'Admin';
-//$validPassword = 'password';
-$validUsers = json_decode(file_get_contents('./users.json'), true);
+$validUsers = json_decode(file_get_contents('../json/users.json'), true);
 //denotes these keys as valid passwords
 session_start();
 //initialises session
 
 if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true) {
-    header('Location: index.html');
+    header('Location: ../index.html');
     return;
 }
 //checks that user is logged in and redirects to main page if so
