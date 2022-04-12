@@ -3,6 +3,7 @@ require('./PdoConnect.php');
 
 $conn = createPdoConnection();
 $validUsers = $conn->query("SELECT * FROM users");
+$validUsers = $validUsers->fetchAll();
 //json_decode(file_get_contents('../json/users.json'), true);
 //denotes these keys as valid passwords
 session_start();

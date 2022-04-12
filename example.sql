@@ -24,7 +24,8 @@ CREATE TABLE contacts
 INSERT INTO users (username, password)
 VALUES
 	('Admin', 'password'),
-	('jwansell','donthackthis');
+	('jwansell','donthackthis'),
+	('testuser','testpass');
 
 SELECT * FROM users;
 

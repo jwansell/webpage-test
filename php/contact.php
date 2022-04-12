@@ -42,7 +42,7 @@ echo json_encode([
 	$contacts = $conn->query(
 	"INSERT INTO contacts (fname, lname, email, message)
 	VALUES
-	("$fname","$lname","$email","$message"),");
-	echo json_encode(['success' => true]);
+	(\"$fname\",\"$lname\",\"$email\",\"$message\");");
+	echo json_encode(['success' => true]); 
 	
 
