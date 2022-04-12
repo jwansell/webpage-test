@@ -1,6 +1,9 @@
 <?php 
+require('./PdoConnect.php');
 
-$validUsers = json_decode(file_get_contents('../json/users.json'), true);
+$conn = createPdoConnection();
+$validUsers = $conn->query("SELECT * FROM users");
+//json_decode(file_get_contents('../json/users.json'), true);
 //denotes these keys as valid passwords
 session_start();
 //initialises session

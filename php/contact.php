@@ -1,5 +1,7 @@
 <?php 
 
+require('./PdoConnect.php');
+
 if(!isset($_POST['first_name'],$_POST['last_name'],$_POST['email'],$_POST['message'])) {
 	http_response_code(400);
 	return;
@@ -16,7 +18,7 @@ $email = $_POST['email'];
 $message = $_POST['message'];
 
 
-$database = json_decode(file_get_contents('../json/contact.json'), true);
+//$database = json_decode(file_get_contents('../json/contact.json'), true);
 
 $database[] = [
 	'fname' => $fname,
@@ -34,4 +36,13 @@ echo json_encode([
 	'message' => $message,
 ]);
 
-file_put_contents('../json/contact.json', json_encode($database));
+//file_put_contents('../json/contact.json', json_encode($database));
+
+	$conn = createPdoConnection();
+	$contacts = $conn->query(
+	"INSERT INTO contacts (fname, lname, email, message)
+	VALUES
+	("$fname","$lname","$email","$message"),");
+	echo json_encode(['success' => true]);
+	
+

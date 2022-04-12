@@ -1,13 +1,18 @@
 <?php
 session_start();
 
+require('./PdoConnect.php');
+require('./authCheck.php');
+
 sleep(1);
 
-if (!isset($_SESSION['is_logged_in']) || !$_SESSION['is_logged_in']) { 
+if (!checkAuth()) { 
 	http_response_code(401);
 	return;
 }
 else {
-	$database = file_get_contents('../json/contact.json');
-	echo $database;	
+	$conn = createPdoConnection();
+	$contacts = $conn->query("SELECT * FROM contacts");
+	$contacts = $contacts->fetchAll();
+	echo json_encode($contacts);
 }

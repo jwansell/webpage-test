@@ -1,14 +1,3 @@
-SELECT * FROM users;
-
-SELECT * FROM users
-WHERE username like 'A%'
-AND password like 'p%';
-
-SELECT * FROM contacts;
-
-INSERT INTO contacts (fname, lname, email, message)
-VALUES
-	('Carter','Richards','CSrichards@realwebsite.co.uk','A sandwich is a food');
 
 	-- remove existing tables before we create new ones
 DROP TABLE IF EXISTS orders, users, contacts;
@@ -39,6 +28,10 @@ VALUES
 
 SELECT * FROM users;
 
+SELECT * FROM users
+WHERE username like 'A%'
+AND password like 'p%';
+
 INSERT INTO contacts (fname, lname, email, message)
 VALUES
 	('michael', 'sievenpiper', 'michael@sievenpiper@yourmeds.net', 'This is a great message'),
@@ -48,6 +41,7 @@ SELECT * FROM contacts;
 
 SELECT * FROM contacts
 WHERE fname LIKE 'j%';
+
 
 INSERT INTO contacts (fname, lname, email, message)
 VALUES
