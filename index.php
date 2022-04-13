@@ -18,6 +18,7 @@ $loggedin = false;
 		<li><a class="active" href="../index.php">Index</a></li>
 		<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) {
 			echo '<li><a href="php/dashboard.php">Dashboard</a></li>';
+			echo '<li><a href="php/ordersPage.php">Orders</a></li>';
 			} ?>
 		<li><a href="php/contactus.php">Contact</a></li>
 		<?php 

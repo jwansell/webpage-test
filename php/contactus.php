@@ -64,6 +64,7 @@ input[type=submit]:hover {
   		<li><a href="../index.php">Index</a></li>
   		<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) {
 			echo '<li><a href="dashboard.php">Dashboard</a></li>';
+			echo '<li><a href="ordersPage.php">Orders</a></li>';
 			} ?>
   		<li><a class="active" href="contactus.php">Contact</a></li>
   		<?php 

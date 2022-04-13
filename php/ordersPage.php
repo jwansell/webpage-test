@@ -9,7 +9,7 @@ $loggedin = false;
 <head>
 <link rel="stylesheet" href="../css/style.css">
 <style>
-	.dashboard-body{
+	.orders-body{
 		width: 500px;
 		padding: 20px;
 		margin: auto;
@@ -23,17 +23,6 @@ $loggedin = false;
 
 	.dashboard-messages {
 		
-	}
-
-	.user-data{
-		width: 500px;
-		padding: 20px;
-		margin: auto;
-		text-align: center;
-		font-size: 1.5em;
-		font-family: sans-serif;
-		color: #FFD5B0;
-		background-color: #E09655;
 	}
 
 	#refresh {
@@ -56,17 +45,17 @@ $loggedin = false;
 	}
 
 </style>
-<title> User Dashboard </title>
+<title> Orders </title>
 </head>
 
 <body>
 <div class="top-bar">
-	<div class="header">Dashboard</div>
+	<div class="header">Orders</div>
 	<ul>
 		<li><a href="../index.php">Index</a></li>
 		<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) {
-			echo '<li><a class="active" href="dashboard.php">Dashboard</a></li>';
-			echo '<li><a href="ordersPage.php">Orders</a></li>';
+			echo '<li><a href="dashboard.php">Dashboard</a></li>';
+			echo '<li><a class="active" href="ordersPage.php">Orders</a></li>';
 			} ?>
 		<li><a href="contactus.php">Contact</a></li>
 		<?php 
@@ -81,35 +70,16 @@ $loggedin = false;
 		<?php if ($loggedin) { echo '<p class= "username-display">' . $_SESSION['username']; } ?>
 	</ul> 
 </div>
-<div class="dashboard-body">
-	<h1>Welcome, User!</h1>
-	<h2> Sandwich Stats: </h2>
-	<p>Date Joined: 23/02/2020</p>
-	<p>Sandwiches eaten: 3406</p>
-	<p>Hours spent online: 28</p>
-	<p>Posts made: 41000</p>
-</div>
-<div class="user-data">
-	<h2> User Information: </h2>
-<?php 
-// $database = json_decode(file_get_contents('./contact.json'), true);
-	
-// foreach ($database as $value) {
-
-// 	echo "<p>First Name: " . $value['fname'] . "</p>";
-// 	echo "<p>Last Name: " . $value['lname'] . "</p>"; 
-// 	echo "<p>Email Address: " . $value['email'] . "</p>";
-// }
-
-?>	
-<script>
-	
-</script>
-<div id='message-text'></div>
-<p id='loading-text'></p>
-<button id="refresh">Refresh</button>
+<div class="orders-body">
+	<h1>List of orders:</h1>
+	<p>User ID:</p>
+	<p>Time Ordered:</p>
+	<p>Quantity:</p>
+	<p>Item Ordered:</p>
+	<p>Value:</p>
+	<button id="refresh">Refresh</button>
 </div>
 
-<script src="../js/dashboardfunction.js"></script>
+<!-- <script src="../js/dashboardfunction.js"></script>  -->
 </body>
 </html>
