@@ -1,0 +1,9 @@
+{
+    "name": "joe/webpage",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^5.4",
+        "symfony/var-dumper": "^6.0",
+        "symfony/polyfill-mbstring": "^1.25"
+    }
+}
