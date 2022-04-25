@@ -15,6 +15,7 @@ $loggedin = false;
 		margin: auto;
 		text-align: center;
 		font-size: 1.5em;
+		border-radius: 5px;
 		font-family: sans-serif;
 		color: #FFD5B0;
 		background-color: #E09655;
@@ -44,6 +45,58 @@ $loggedin = false;
 
 	}
 
+	.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 3px;
+  background-color: #A3622A;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.grid-container > div {
+  background-color: #CC884C;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 20px;
+}
+
+.orders-heading{
+	width: 500px;
+	padding: 25px;
+	margin: auto;
+	text-align: center;
+	font-family: sans-serif;
+	color: #FFD5B0;
+}
+
+.item0 {
+	font-size: 40px;
+	font-weight: bolder;
+	grid-column: 1 / span 5;
+	grid-row:  1/ 5;
+}
+
+.item1 {
+  grid-column: 1 / span 1;
+}
+
+.item2 {
+  grid-column: 2 / span 1;
+}
+
+.item3 {
+  grid-column: 3 / span 1;
+}
+
+.item4 {
+  grid-column: 4 / span 1;
+}
+
+.item5 {
+  grid-column: 5 / span 1;
+}
+
 </style>
 <title> Orders </title>
 </head>
@@ -70,16 +123,25 @@ $loggedin = false;
 		<?php if ($loggedin) { echo '<p class= "username-display">' . $_SESSION['username']; } ?>
 	</ul> 
 </div>
+<h1 class="orders-heading">Keep track of orders on this page.</h1>
 <div class="orders-body">
-	<h1>List of orders:</h1>
-	<p>User ID:</p>
-	<p>Time Ordered:</p>
-	<p>Quantity:</p>
-	<p>Item Ordered:</p>
-	<p>Value:</p>
+		<div class="grid-container">
+			<div class="item0">Orders Database</div>
+			<div class="item1">User ID</div>
+			<div class="item2">Time Ordered</div>
+			<div class="item3">Quantity</div>  
+			<div class="item4">Item Ordered</div>
+			<div class="item5">Value</div>
+			<div class="item6">0</div>
+			<div class="item7">0:00</div>
+			<div class="item8">0</div>  
+			<div class="item9">Text</div>  
+			<div class="item10">£0.00</div>  
+		</div>
 	<button id="refresh">Refresh</button>
 </div>
 
-<!-- <script src="../js/dashboardfunction.js"></script>  -->
+
+<script src="../js/ordersfunction.js"></script> 
 </body>
 </html>

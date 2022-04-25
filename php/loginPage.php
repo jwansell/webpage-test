@@ -61,6 +61,7 @@ button:hover {
   margin: auto;
   font-family: sans-serif;
   color: #FFD5B0;
+  border-radius: 5px;
   font-weight: bold;
 }
 

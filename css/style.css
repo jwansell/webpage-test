@@ -34,6 +34,14 @@
   background-color: saddlebrown;
 }
 
+.main-header{
+	 list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: saddlebrown;
+}
+
 li {
   float: left;
 }

@@ -17,6 +17,7 @@ $loggedin = false;
 	padding: 20px;
 	width: 600px;
 	margin: auto;
+	border-radius: 5px;
 	color: #FFD5B0;
 	font-family: sans-serif;
 	font-weight: bold;

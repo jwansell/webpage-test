@@ -58,8 +58,8 @@ CREATE TABLE orders
    	user_id  INTEGER NOT NULL,
    	PRIMARY KEY (id),
    	FOREIGN KEY(user_id) REFERENCES users(id),
-   	order_time VARCHAR (255) NOT NULL,
-   	quantity INTEGER NOT NULL,
-   	item VARCHAR (255) NOT NULL,
+   	order_time TIMESTAMP NOT NULL,
+   	quantity INTEGER 	 NOT NULL,
+   	item VARCHAR (255) 	 NOT NULL,
    	order_value VARCHAR (255) NOT NULL
 );
