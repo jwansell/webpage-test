@@ -18,8 +18,6 @@ $email = $_POST['email'];
 $message = $_POST['message'];
 
 
-//$database = json_decode(file_get_contents('../json/contact.json'), true);
-
 $database[] = [
 	'fname' => $fname,
 	'lname' => $lname,
@@ -36,7 +34,6 @@ echo json_encode([
 	'message' => $message,
 ]);
 
-//file_put_contents('../json/contact.json', json_encode($database));
 
 	$conn = createPdoConnection();
 	$contacts = $conn->query(

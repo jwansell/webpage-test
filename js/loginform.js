@@ -1,30 +1,27 @@
-function onSubmit(){
+Vue.createApp({
+	data() {
+		return{
+			unameInput: '',
+			pswInput: ''
+		}
+	},
+	methods:{
+		onSubmit: function() {
+		
+		var data = new FormData();
+		data.append('username', this.unameInput);
+		data.append('password', this.pswInput);
 
-	var unameInput = document.getElementById('uname');
-	var pswInput = document.getElementById('psw');
-	
+		const options = {
+	    	method: 'POST',
+	    	body: data,
+		};
 
-	var data = new FormData();
-	data.append('username', unameInput.value);
-	data.append('password', pswInput.value);
-
-	const options = {
-    	method: 'POST',
-    	body: data,
-	};
-
-	fetch('http://localhost:8000/php/login.php', options)
-	    .then(res => res.json())
-	    .then(res => {
-	    	window.location.reload();
-	    });
-}
-
-var button = document.getElementById('submit');
-button.addEventListener('click', onSubmit);
-
-window.addEventListener('keydown', function (event) {
-	if (event.keyCode == 13) {
-		onSubmit();
-	}
-});
+		fetch('http://localhost:8000/php/login.php', options)
+		    .then(res => res.json())
+		    .then(res => {
+		    	window.location.reload();
+		    });
+		}
+	},
+}).mount('#app')

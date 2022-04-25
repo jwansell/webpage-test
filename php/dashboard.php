@@ -37,17 +37,6 @@ $loggedin = false;
 		background-color: #E09655;
 	}
 
-/*	#refresh {
-  		background-color: saddlebrown;
-  		color: white;
-  		padding: 14px 20px;
-  		margin: 8px 0;
-  		border: 30px;
-  		border-radius: 1000px;
-  		cursor: pointer;
-  		width: 100%;
-	}*/
-
 	.button {
 		background-color: saddlebrown;
   		color: white;
@@ -62,10 +51,6 @@ $loggedin = false;
 	.button:hover {
 		opacity: 0.8;
 	}
-
-	/*#refresh:hover {
-	  	opacity: 0.8;
-	}*/
 
 	#message-text {
 

@@ -44,8 +44,9 @@ input[type=text], select, textarea {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
-  background-color: #45a049;
+
+#submit:hover {
+  opacity: 0.8;
 }
 
 .contact-heading{
@@ -59,48 +60,53 @@ input[type=submit]:hover {
 </style>
 </head>
 <body>
-<div class="top-bar">
-	<div class="header">Get in contact</div>
-	<ul>
-  		<li><a href="../index.php">Index</a></li>
-  		<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) {
-			echo '<li><a href="dashboard.php">Dashboard</a></li>';
-			echo '<li><a href="ordersPage.php">Orders</a></li>';
-			} ?>
-  		<li><a class="active" href="contactus.php">Contact</a></li>
-  		<?php 
-		if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) { // If the user is logged in
-    		echo '<li><a class= "logout-link" href="./logout.php">Logout</a></li>';
-    		$loggedin = true; // Show an anchor tag with Text Logout and link to `logout.php`
-		}
-		else {
-			echo '<li><a class= "login-link" href="./loginPage.php">Login</a></li>';
-		}
-  		?>
-  		<?php if ($loggedin) { echo '<p class= "username-display">' . $_SESSION['username']; } ?>
-	</ul> 
+
+<div id="app">	
+		<div class="top-bar">
+			<div class="header">Get in contact</div>
+			<ul>
+		  		<li><a href="../index.php">Index</a></li>
+		  		<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) {
+					echo '<li><a href="dashboard.php">Dashboard</a></li>';
+					echo '<li><a href="ordersPage.php">Orders</a></li>';
+					} ?>
+		  		<li><a class="active" href="contactus.php">Contact</a></li>
+		  		<?php 
+				if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) { // If the user is logged in
+		    		echo '<li><a class= "logout-link" href="./logout.php">Logout</a></li>';
+		    		$loggedin = true; // Show an anchor tag with Text Logout and link to `logout.php`
+				}
+				else {
+					echo '<li><a class= "login-link" href="./loginPage.php">Login</a></li>';
+				}
+		  		?>
+		  		<?php if ($loggedin) { echo '<p class= "username-display">' . $_SESSION['username']; } ?>
+			</ul> 
+		</div>
+
+		<div class ="contact-heading">
+		<h1>Want to leave a message? Look no further.</h1>
+		</div>
+
+		<div class="contact">
+			<div>{{ fnameInput }} {{ lnameInput }}</div>
+
+			<label for="fname">First Name</label>
+		    <input type="text" id="fname" name="firstname" placeholder="Your name:" v-model="fnameInput">
+
+		    <label for="lname">Last Name</label>
+		    <input type="text" id="lname" name="lastname" placeholder="Your last name:" v-model="lnameInput">
+
+		    <label for="email">E-Mail</label>
+		    <input type="text" id="email" name="email" placeholder="Your E-Mail address:" v-model="emailInput">
+
+		    <label for="message">Message</label>
+		    <textarea id="message" name="message" placeholder="Leave your message here." style="height:200px" v-model="messageInput"></textarea>
+
+		    <button id="submit" v-on:click="onSubmit">Submit</button>
+		</div>
 </div>
-
-<div class ="contact-heading">
-<h1>Want to leave a message? Look no further.</h1>
-</div>
-
-<div class="contact">
-	<label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name:">
-
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name:">
-
-    <label for="email">E-Mail</label>
-    <input type="text" id="email" name="email" placeholder="Your E-Mail address:">
-
-    <label for="message">Message</label>
-    <textarea id="message" name="message" placeholder="Leave your message here." style="height:200px"></textarea>
-
-    <button id="submit">Submit</button>
-</div>
-
-<script src="../js/contactform.js"></script>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="../js/contactform.js" defer></script>
 </body>
 </html>

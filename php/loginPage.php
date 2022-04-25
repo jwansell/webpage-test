@@ -73,6 +73,8 @@ span.psw {
 </style>
 </head>
 <body>
+
+<div id="app"> 
 	<div class="top-bar">
 		<div class="header">Log-in</div>
 	<ul>
@@ -92,14 +94,15 @@ span.psw {
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input id="uname" type="text" placeholder="Enter Username" name="uname" required>
+    <input id="uname" type="text" placeholder="Enter Username" name="uname" v-model="unameInput" required>
 
     <label for="psw"><b>Password</b></label>
-    <input id="psw" type="password" placeholder="Enter Password" name="psw" required>
+    <input id="psw" type="password" placeholder="Enter Password" name="psw" v-model= "pswInput" required v-on:keyup.enter="onSubmit">
         
-    <button id="submit">Login</button>
+    <button id="submit" v-on:click="onSubmit">Login</button>
   </div>
-
-<script src="../js/loginform.js"></script>
+</div>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="../js/loginform.js" defer></script>
 </body>
 </html>
