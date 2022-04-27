@@ -57,18 +57,18 @@ $loggedin = false;
 	}
 
 </style>
-<title> User Dashboard </title>
+<title> Checkout </title>
 </head>
 
 <body>
 	
 	<div id="app">
 	<div class="top-bar">
-		<div class="header">Dashboard</div>
+		<div class="header">Checkout</div>
 		<ul>
 			<li><a href="../index.php">Index</a></li>
 			<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) {
-				echo '<li><a class="active" href="dashboard.php">Dashboard</a></li>';
+				echo '<li><a href="dashboard.php">Dashboard</a></li>';
 				echo '<li><a href="ordersPage.php">Orders</a></li>';
 				} ?>
 			<li><a href="contactus.php">Contact</a></li>
@@ -86,30 +86,15 @@ $loggedin = false;
 		</ul> 
 	</div>
 	<div class="dashboard-body">
-		<h1>Welcome, User!</h1>
-		<h2> Sandwich Stats: </h2>
-		<p>Date Joined: 23/02/2020</p>
-		<p>Sandwiches eaten: 3406</p>
-		<p>Hours spent online: 28</p>
-		<p>Posts made: 41000</p>
+		<h2>Sandwichland Checkout</h2>
+		<p>Current Basket:</p>
+		<p>order info here</p>
+		<a href= "confirmation.php"><button class="button" >Confirm order</button></a>
 	</div>
-	<div class="user-data">
-		<h2> User Information: </h2>
-		<div id='message-text'>
-			<div v-if="messages.length == 0">Loading...</div>
-			<div class="contact-message" v-for="message in messages">
-				<p>Name: {{message.fname}} {{message.lname}}</p> 
-				<p> Email: {{message.email}}</p> 
-				<p> Message: {{message.message}}</p>
-			</div>
-		</div>
-		<p id='loading-text'></p>
 
-		<button class="button" v-on:click="fetchMessages">Refresh</button> 
-	</div>
 </div>
 <script src="/node_modules/vue/dist/vue.global.js"></script>
 <script src="/node_modules/axios/dist/axios.min.js"></script>
-<script src="../js/dashboardfunction.js" defer></script>
+<!-- <script src="../js/dashboardfunction.js" defer></script> -->
 </body>
 </html>

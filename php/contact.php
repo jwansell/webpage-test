@@ -12,6 +12,7 @@ if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 	return;
 }
 
+
 $fname = $_POST['first_name'];
 $lname = $_POST['last_name'];
 $email = $_POST['email'];
@@ -33,8 +34,6 @@ echo json_encode([
 	'email' => $email,
 	'message' => $message,
 ]);
-
-
 	$conn = createPdoConnection();
 	$contacts = $conn->query(
 	"INSERT INTO contacts (fname, lname, email, message)

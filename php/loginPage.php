@@ -83,6 +83,7 @@ span.psw {
       echo '<li><a href="dashboard.php">Dashboard</a></li>';
       } ?>
   		<li><a href="contactus.php">Contact</a></li>
+      <li><a href="storePage.php">Store</a></li>
   		<li><a class="active" href="loginPage.php">Login</a></li>
       <?php if ($loggedin) { echo '<p class= "username-display">' . $_SESSION['username']; } ?>
 	</ul> 
@@ -102,7 +103,8 @@ span.psw {
     <button id="submit" v-on:click="onSubmit">Login</button>
   </div>
 </div>
-<script src="https://unpkg.com/vue@3"></script>
+<script src="/node_modules/axios/dist/axios.min.js"></script>
+<script src="/node_modules/vue/dist/vue.global.js"></script>
 <script src="../js/loginform.js" defer></script>
 </body>
 </html>

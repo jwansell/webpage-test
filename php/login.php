@@ -12,6 +12,7 @@ if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true) {
     header('Location: ../index.html');
     return;
 }
+$_POST = json_decode(file_get_contents('php://input'), true);
 //checks that user is logged in and redirects to main page if so
 if(!isset($_POST['username'], $_POST['password'])) {
 	http_response_code(404);
@@ -29,6 +30,7 @@ $foundUser = array_filter($validUsers, function ($user) use ($uname, $psw) {
 	return false;
 });
 
+echo "here";
 if(count($foundUser) == 1) {
 	//checks that password and username both valid 
 	http_response_code(200);

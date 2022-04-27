@@ -102,46 +102,53 @@ $loggedin = false;
 </head>
 
 <body>
-<div class="top-bar">
-	<div class="header">Orders</div>
-	<ul>
-		<li><a href="../index.php">Index</a></li>
-		<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) {
-			echo '<li><a href="dashboard.php">Dashboard</a></li>';
-			echo '<li><a class="active" href="ordersPage.php">Orders</a></li>';
-			} ?>
-		<li><a href="contactus.php">Contact</a></li>
-		<?php 
-		if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) { // If the user is logged in
-    		echo '<li><a class= "logout-link" href="./logout.php">Logout</a></li>';
-    		$loggedin = true; // Show an anchor tag with Text Logout and link to `logout.php`
-		}
-		else {
-			echo '<li><a class= "login-link" href="./loginPage.php">Login</a></li>';
-		}
-  		?>
-		<?php if ($loggedin) { echo '<p class= "username-display">' . $_SESSION['username']; } ?>
-	</ul> 
-</div>
-<h1 class="orders-heading">Keep track of orders on this page.</h1>
-<div class="orders-body">
-		<div class="grid-container">
-			<div class="item0">Orders Database</div>
-			<div class="item1">User ID</div>
-			<div class="item2">Time Ordered</div>
-			<div class="item3">Quantity</div>  
-			<div class="item4">Item Ordered</div>
-			<div class="item5">Value</div>
-			<div class="item6">0</div>
-			<div class="item7">0:00</div>
-			<div class="item8">0</div>  
-			<div class="item9">Text</div>  
-			<div class="item10">£0.00</div>  
+<div class="app">
+	<div class="top-bar">
+		<div class="header">Orders</div>
+		<ul>
+			<li><a href="../index.php">Index</a></li>
+			<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) {
+				echo '<li><a href="dashboard.php">Dashboard</a></li>';
+				echo '<li><a class="active" href="ordersPage.php">Orders</a></li>';
+				} ?>
+			<li><a href="contactus.php">Contact</a></li>
+			<li><a href="storePage.php">Store</a></li>
+			<?php 
+			if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) { // If the user is logged in
+	    		echo '<li><a class= "logout-link" href="./logout.php">Logout</a></li>';
+	    		$loggedin = true; // Show an anchor tag with Text Logout and link to `logout.php`
+			}
+			else {
+				echo '<li><a class= "login-link" href="./loginPage.php">Login</a></li>';
+			}
+	  		?>
+			<?php if ($loggedin) { echo '<p class= "username-display">' . $_SESSION['username']; } ?>
+		</ul> 
+	</div>
+	<h1 class="orders-heading">Keep track of orders on this page.</h1>
+		<div class="orders-body">
+				<div class="grid-container" v-for="order in orders">
+					<div class="item0">Orders Database</div>
+					<div class="item1">User ID</div>
+					<div class="item2">Time Ordered</div>
+					<div class="item3">Quantity</div>  
+					<div class="item4">Item Ordered</div>
+					<div class="item5">Value</div>
+					<!-- <div class="item6">0</div>
+					<div class="item7">0:00</div>
+					<div class="item8">0</div>  
+					<div class="item9">Text</div>  
+					<div class="item10">£0.00</div>  -->
+					<div>{{orders.user_id}}</div>
+					<div>{{orders.order_time}}</div>
+					<div>{{orders.quantity}}</div>
+					<div>{{orders.item}}</div>
+					<div>{{orders.order_value}}</div> 
+				</div>
+			<button id="refresh" v-on:click="fetchOrders">Refresh</button>
 		</div>
-	<button id="refresh">Refresh</button>
 </div>
-
-
-<script src="../js/ordersfunction.js"></script> 
+<script src="/node_modules/vue/dist/vue.global.js"></script>
+<script src="../js/ordersfunction.js" defer></script> 
 </body>
 </html>

@@ -21,6 +21,7 @@ $loggedin = false;
 			echo '<li><a href="php/ordersPage.php">Orders</a></li>';
 			} ?>
 		<li><a href="php/contactus.php">Contact</a></li>
+		<li><a href="php/storePage.php">Store</a></li>
 		<?php 
 		if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) { // If the user is logged in
     		echo '<li><a class= "logout-link" href="php/logout.php">Logout</a></li>';

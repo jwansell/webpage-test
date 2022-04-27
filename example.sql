@@ -63,3 +63,7 @@ CREATE TABLE orders
    	item VARCHAR (255) 	 NOT NULL,
    	order_value VARCHAR (255) NOT NULL
 );
+
+INSERT INTO orders (quantity, item, order_value)
+VALUES
+	('1','Test Item','£1.99');

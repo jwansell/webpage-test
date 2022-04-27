@@ -1,0 +1,23 @@
+{
+  "name": "webpage",
+  "version": "1.0.0",
+  "description": "testing website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwansell/webpage-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jwansell/webpage-test/issues"
+  },
+  "homepage": "https://github.com/jwansell/webpage-test#readme",
+  "dependencies": {
+    "axios": "^0.27.1",
+    "vue": "^3.2.33"
+  }
+}

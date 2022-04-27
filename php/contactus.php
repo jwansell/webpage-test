@@ -71,6 +71,7 @@ input[type=text], select, textarea {
 					echo '<li><a href="ordersPage.php">Orders</a></li>';
 					} ?>
 		  		<li><a class="active" href="contactus.php">Contact</a></li>
+		  		<li><a href="storePage.php">Store</a></li>
 		  		<?php 
 				if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) { // If the user is logged in
 		    		echo '<li><a class= "logout-link" href="./logout.php">Logout</a></li>';
@@ -106,7 +107,8 @@ input[type=text], select, textarea {
 		    <button id="submit" v-on:click="onSubmit">Submit</button>
 		</div>
 </div>
-<script src="https://unpkg.com/vue@3"></script>
+<script src="/node_modules/axios/dist/axios.min.js"></script>
+<script src="/node_modules/vue/dist/vue.global.js"></script>
 <script src="../js/contactform.js" defer></script>
 </body>
 </html>
