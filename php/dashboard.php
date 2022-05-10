@@ -45,7 +45,7 @@ $loggedin = false;
   		border: 30px;
   		border-radius: 1000px;
   		cursor: pointer;
-  		width: 100%;
+  		width: 60%;
 	}
 
 	.button:hover {

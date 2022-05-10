@@ -1,7 +1,7 @@
 <?php 
 
 require('./PdoConnect.php');
-
+$_POST = json_decode(file_get_contents('php://input'), true);
 if(!isset($_POST['first_name'],$_POST['last_name'],$_POST['email'],$_POST['message'])) {
 	http_response_code(400);
 	return;

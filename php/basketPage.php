@@ -78,7 +78,7 @@ $loggedin = false;
 	}
 
 </style>
-<title> Store </title>
+<title> User Dashboard </title>
 </head>
 
 <body>
@@ -107,16 +107,7 @@ $loggedin = false;
 		</ul> 
 	</div>
 	<div class="dashboard-body">
-		<h2>Welcome to our store page.</h2>
-		<div v-if="products.length == 0">Loading...</div>
-		<div class="store-items" v-for="product in products">
-			<p>Name: {{product.item}}</p>
-			<p>Price: {{product.price}}</p>
-			<p>In Stock: {{product.stock}}</p>
-			<!-- <a href= "basketPage.php"> --><button class="basket" v-on:click="addtoBasket(product)">Add To Basket</button><!-- </a> -->
-		</div>
-		<button class="button" v-on:click="fetchProducts">Refresh</button>
-		<a href= "checkout.php"><button class="button" >To Checkout</button></a>
+		<h2>Basket</h2>
 	</div>
 
 </div>

@@ -34,7 +34,7 @@ $loggedin = false;
   		border: 30px;
   		border-radius: 1000px;
   		cursor: pointer;
-  		width: 100%;
+  		width: 60%;
 	}
 
 	#refresh:hover {
@@ -102,7 +102,7 @@ $loggedin = false;
 </head>
 
 <body>
-<div class="app">
+<div id="app">
 	<div class="top-bar">
 		<div class="header">Orders</div>
 		<ul>
@@ -125,6 +125,7 @@ $loggedin = false;
 			<?php if ($loggedin) { echo '<p class= "username-display">' . $_SESSION['username']; } ?>
 		</ul> 
 	</div>
+
 	<h1 class="orders-heading">Keep track of orders on this page.</h1>
 		<div class="orders-body">
 				<div class="grid-container" v-for="order in orders">
@@ -134,21 +135,18 @@ $loggedin = false;
 					<div class="item3">Quantity</div>  
 					<div class="item4">Item Ordered</div>
 					<div class="item5">Value</div>
-					<!-- <div class="item6">0</div>
-					<div class="item7">0:00</div>
-					<div class="item8">0</div>  
-					<div class="item9">Text</div>  
-					<div class="item10">£0.00</div>  -->
-					<div>{{orders.user_id}}</div>
-					<div>{{orders.order_time}}</div>
-					<div>{{orders.quantity}}</div>
-					<div>{{orders.item}}</div>
-					<div>{{orders.order_value}}</div> 
+					<div>{{order.id}}</div>
+					<div>{{order.order_time}}</div>
+					<div>{{order.quantity}}</div>
+					<div>{{order.item}}</div>
+					<div>{{order.order_value}}</div> 
 				</div>
 			<button id="refresh" v-on:click="fetchOrders">Refresh</button>
 		</div>
+		
 </div>
 <script src="/node_modules/vue/dist/vue.global.js"></script>
+<script src="/node_modules/axios/dist/axios.min.js"></script>
 <script src="../js/ordersfunction.js" defer></script> 
 </body>
 </html>

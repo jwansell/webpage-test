@@ -85,20 +85,21 @@ $loggedin = false;
 			<?php if ($loggedin) { echo '<p class= "username-display">' . $_SESSION['username']; } ?>
 		</ul> 
 	</div>
-	<div class="dashboard-body">
+	<div class="dashboard-body" v-for="address in addresses">
 		<h2>Order Confirmation</h2>
-		<p>Order ID:</p>
-		<p>Ordered At:</p>
-		<p>Item:</p>
-		<p>Quantity:</p>
-		<p>Value:</p>
-		<p>Shipping Address: 24 Testing Blvd, SO34 BN4</p>
+		<p>Order ID: {{address.user_id}}</p>
+		<p>Ordered At: {{address.order_time}}</p> 
+		<p>Item: {{address.item}}</p>
+		<p>Quantity:{{address.quantity}}</p> 
+		<p>Value:{{address.order_value}}</p> 
+		<div v-if="addresses.length == 0">Loading...</div>
+		<p>Shipping Address: {{address.address}}, {{address.postcode}}, {{address.city}}, {{address.county}}</p>
 		<a href="../index.php"><button class="button"> Back To Homepage </button></a>
 	</div>
 
 </div>
 <script src="/node_modules/vue/dist/vue.global.js"></script>
 <script src="/node_modules/axios/dist/axios.min.js"></script>
-<!-- <script src="../js/dashboardfunction.js" defer></script> -->
+<script src="../js/confirmorder.js" defer></script>
 </body>
 </html>
