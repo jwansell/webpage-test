@@ -85,21 +85,23 @@ $loggedin = false;
 			<?php if ($loggedin) { echo '<p class= "username-display">' . $_SESSION['username']; } ?>
 		</ul> 
 	</div>
-	<div class="dashboard-body" v-for="address in addresses">
+	<div class="dashboard-body">
 		<h2>Order Confirmation</h2>
-		<p>Order ID: {{address.user_id}}</p>
-		<p>Ordered At: {{address.order_time}}</p> 
-		<p>Item: {{address.item}}</p>
-		<p>Quantity:{{address.quantity}}</p> 
-		<p>Value:{{address.order_value}}</p> 
-		<div v-if="addresses.length == 0">Loading...</div>
-		<p>Shipping Address: {{address.address}}, {{address.postcode}}, {{address.city}}, {{address.county}}</p>
+		<div v-for="address in addresses">
+			<p>Order ID: {{address.id}}</p>
+			<p>Ordered At: {{address.order_time}}</p> 
+			<p>Item: {{address.item}}</p>
+			<p>Quantity:{{address.quantity}}</p> 
+			<p>Value:{{address.order_value}}</p> 
+			<div v-if="addresses.length == 0">Loading...</div>
+			<p>Shipping Address: {{address.address}}, {{address.postcode}}, {{address.city}}, {{address.county}}</p>
+		</div>
 		<a href="../index.php"><button class="button"> Back To Homepage </button></a>
 	</div>
 
 </div>
 <script src="/node_modules/vue/dist/vue.global.js"></script>
 <script src="/node_modules/axios/dist/axios.min.js"></script>
-<script src="../js/confirmorder.js" defer></script>
+<script src="../dist/confirm.js" defer></script>
 </body>
 </html>

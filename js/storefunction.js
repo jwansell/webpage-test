@@ -1,3 +1,7 @@
+import {notifications} from '../src/notifications/notifications.js'
+
+notifications.success();
+
 Vue.createApp({
     data() {
         return {
@@ -10,9 +14,11 @@ Vue.createApp({
             axios.get('/php/store.php')
             .then(response => {
                 this.products = response.data;
+                notifications.success();
             })
             .catch(error=> {
                 console.log(error);
+                notifications.error();
             });
        	},
 
@@ -20,9 +26,11 @@ Vue.createApp({
         axios.post('http://localhost:8000/php/basketAPI.php', product)
             .then(response => {
                 console.log(response);
+                notifications.basket();
             })
             .catch(error=> {
                 console.log(error);
+                notifications.error();
             });
         }
 	},

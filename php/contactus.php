@@ -109,6 +109,6 @@ input[type=text], select, textarea {
 </div>
 <script src="/node_modules/axios/dist/axios.min.js"></script>
 <script src="/node_modules/vue/dist/vue.global.js"></script>
-<script src="../js/contactform.js" defer></script>
+<script src="../dist/contact.js" defer></script>
 </body>
 </html>

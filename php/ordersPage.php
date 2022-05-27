@@ -128,8 +128,8 @@ $loggedin = false;
 
 	<h1 class="orders-heading">Keep track of orders on this page.</h1>
 		<div class="orders-body">
+			<div class="item0">List of orders:</div>	
 				<div class="grid-container" v-for="order in orders">
-					<div class="item0">Orders Database</div>
 					<div class="item1">User ID</div>
 					<div class="item2">Time Ordered</div>
 					<div class="item3">Quantity</div>  
@@ -147,6 +147,6 @@ $loggedin = false;
 </div>
 <script src="/node_modules/vue/dist/vue.global.js"></script>
 <script src="/node_modules/axios/dist/axios.min.js"></script>
-<script src="../js/ordersfunction.js" defer></script> 
+<script src="../dist/orders.js" defer></script>
 </body>
 </html>

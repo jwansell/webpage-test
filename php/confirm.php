@@ -10,9 +10,21 @@ if (!checkAuth()) {
 }
 else {
 	$conn = createPdoConnection();
-	$addresses = $conn->query("SELECT * FROM addresses
-		INNER JOIN orders 
-		ON orders.id = addresses.order_id");
+	$addresses = $conn->query("
+	SELECT
+		orders.id,
+		orders.order_time,
+		order_products.quantity,
+		orders.item,
+		orders.order_value,
+		addresses.address,
+		addresses.postcode,
+		addresses.city,
+		addresses.county
+	FROM
+		addresses 
+		INNER JOIN orders ON orders.id = addresses.order_id 
+		INNER JOIN order_products ON order_products.order_id = orders.id;");
 	$addresses = $addresses->fetchAll();
 	echo json_encode($addresses);
 

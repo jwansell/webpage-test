@@ -1,7 +1,9 @@
+import {notifications} from '../src/notifications/notifications.js'
+
 Vue.createApp({
     data() {
         return {
-            
+            baskets: [],
             addressInput: '',
             postcodeInput: '',
             countyInput: '',
@@ -18,24 +20,52 @@ Vue.createApp({
             })
             .then(response => {
                 console.log(response);
+                notifications.success();
             })
             .catch(error=> {
                 console.log(error);
+                notifications.error();
             });
         },
 
-         fetchOrders: function () { // We have to change syntax slightly within Vue but follow the Key: function() syntax
-            this.orders = [];
-            axios.get('/php/orders.php')
+        displayBasket: function () {
+            this.baskets = [];
+            axios.get('/php/basket.php')
             .then(response => {
-                this.orders = response.data;
+                this.baskets = response.data.items;
+            })
+            .catch(error => {
+                console.log(error)
+                notifications.error();
+            })
+        },
+
+        clearBasket: function () {
+            axios.get('/php/clearbasket.php')
+            .then(response => {
+                window.location.reload();
+                notifications.success();
             })
             .catch(error=> {
                 console.log(error);
+                notifications.error();
+            });
+        },
+
+        clearItem: function () {
+            axios.get('/php/removeitem.php')
+            .then(response => {
+                //window.location.reload();
+                notifications.success();
+            })
+            .catch(error=> {
+                console.log(error)
+                notifications.error();
             });
         }
+        
 	},
     mounted() {
-        this.fetchOrders();
+        this.displayBasket();
     }
 }).mount('#app');

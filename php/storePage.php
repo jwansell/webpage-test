@@ -113,7 +113,7 @@ $loggedin = false;
 			<p>Name: {{product.item}}</p>
 			<p>Price: {{product.price}}</p>
 			<p>In Stock: {{product.stock}}</p>
-			<!-- <a href= "basketPage.php"> --><button class="basket" v-on:click="addtoBasket(product)">Add To Basket</button><!-- </a> -->
+			<button class="basket" v-on:click="addtoBasket(product)">Add To Basket</button>
 		</div>
 		<button class="button" v-on:click="fetchProducts">Refresh</button>
 		<a href= "checkout.php"><button class="button" >To Checkout</button></a>
@@ -122,6 +122,6 @@ $loggedin = false;
 </div>
 <script src="/node_modules/vue/dist/vue.global.js"></script>
 <script src="/node_modules/axios/dist/axios.min.js"></script>
-<script src="../js/storefunction.js" defer></script>
+<script src="../dist/store.js" defer></script>
 </body>
 </html>

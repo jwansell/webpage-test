@@ -1,3 +1,4 @@
+import {notifications} from '../src/notifications/notifications.js'
 
 Vue.createApp({
     data() {
@@ -11,9 +12,11 @@ Vue.createApp({
             axios.get('/php/orders.php')
             .then(response => {
                 this.orders = response.data;
+                notifications.success();
             })
             .catch(error=> {
                 console.log(error);
+                notifications.error();
             });
         }
     },

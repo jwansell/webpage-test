@@ -1,3 +1,5 @@
+import {notifications} from '../src/notifications/notifications.js'
+
 Vue.createApp({
     data() {
         return {

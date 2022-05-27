@@ -114,5 +114,6 @@ $loggedin = false;
 <script src="/node_modules/vue/dist/vue.global.js"></script>
 <script src="/node_modules/axios/dist/axios.min.js"></script>
 <script src="../js/storefunction.js" defer></script>
+<script src="../dist/bundle.js"> </script>
 </body>
 </html>

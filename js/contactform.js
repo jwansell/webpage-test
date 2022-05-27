@@ -1,3 +1,4 @@
+import {notifications} from '../src/notifications/notifications.js'
 
 Vue.createApp({
 	data() {
@@ -22,9 +23,11 @@ Vue.createApp({
 			})
 		    .then(response => {
 		    	console.log(response);
+		    	notifications.success();
 		    })
 		    .catch(error=> {
 		    	console.log(error);
+		    	notifications.error();
 		    });
 		}	
 	},

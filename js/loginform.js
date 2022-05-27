@@ -1,3 +1,5 @@
+import {notifications} from '../src/notifications/notifications.js'
+
 Vue.createApp({
 	data() {
 		return{
@@ -30,9 +32,11 @@ Vue.createApp({
 		})
 		    .then(response => {
 		    	window.location.reload();
+		    	notifications.success();
 		    })
 		    .catch(error=> {
 		    	console.log(error);
+		    	notifications.error();
 		    });
 		}
 	},

@@ -108,9 +108,6 @@ CREATE TABLE order_products (
     order_id INTEGER NOT NULL,
     FOREIGN KEY(order_id) REFERENCES orders(id),
     product_id INTEGER NOT NULL,
-    FOREIGN KEY(product_id) REFERENCES products(id),
-    quantity INTEGER NOT NULL
-);
 
 INSERT INTO order_products (order_id, product_id, quantity)
 VALUES
@@ -118,9 +115,13 @@ VALUES
 	('2','2','1'),
 	('3','3','4');
 
-INSERT INTO orders (user_id, order_time, item, order_value)
+INSERT INTO orders (user_id, order_time, it
+    FOREIGN KEY(product_id) REFERENCES products(id),
+    quantity INTEGER NOT NULL
+);em, order_value)
 VALUES
 	('3',CURRENT_TIMESTAMP,'Knuckle Sandwich','£7.99');
+	
 SELECT
     orders.user_id,
     orders.order_time,

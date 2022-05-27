@@ -10,7 +10,7 @@ if(!isset($_POST['address'],$_POST['postcode'],$_POST['city'],$_POST['county']))
 
 $address = $_POST['address'];
 $postcode = $_POST['postcode'];
-$city = $_POST['quantity'];
+$city = $_POST['city'];
 $county = $_POST['county'];
 
 $database[] = [
@@ -30,9 +30,9 @@ echo json_encode([
 ]);
 	$conn = createPdoConnection();
 	$orders = $conn->query(
-	"INSERT INTO addresses (address, postcode, city, county)
+	"INSERT INTO addresses (user_id, order_id, address, postcode, city, county)
 	VALUES
-	(\"$address\",\"$postcode\",\"$city\",\"$county\");");
+	('1','1',\"$address\",\"$postcode\",\"$city\",\"$county\");");
 	echo json_encode(['success' => true]); 
 	
 

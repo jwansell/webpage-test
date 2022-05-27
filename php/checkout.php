@@ -63,56 +63,36 @@ $loggedin = false;
 		background-color: saddlebrown;
   		color: white;
   		padding: 14px 20px;
+  		text-align: center;
   		margin: 8px 0;
   		border: 30px;
   		border-radius: 1000px;
   		cursor: pointer;
-  		width: 60%;
+  		width: 100%;
 	}
 
 	.button:hover {
 		opacity: 0.8;
 	}
 
-	.grid-container {
+	.items-grid-container {
 	  display: grid;
-	  grid-template-columns: auto auto auto;
+	  grid-template-columns: auto;
 	  gap: 3px;
 	  background-color: #A3622A;
 	  border-radius: 5px;
 	  padding: 4px;
 	}
 
-	.grid-container > div {
+	.item-grid-container {
 	  background-color: #CC884C;
 	  text-align: center;
 	  padding: 10px;
 	  font-size: 20px;
+	  display: grid;
+	  grid-template-columns: auto auto auto auto auto;
+  	  gap: 3px;
 	}
-
-	.item0 {
-	font-size: 40px;
-	font-weight: bolder;
-	grid-column: 1 / span 4;
-	grid-row:  1/ 4;
-	}
-
-	.item1 {
-	  grid-column: 1 / span 1;
-	}
-
-	.item2 {
-	  grid-column: 2 / span 1;
-	}
-
-	.item3 {
-	  grid-column: 3 / span 1;
-	}
-
-	.item4 {
-	  grid-column: 4 / span 1;
-	}
-
 </style>
 <title> Checkout </title>
 </head>
@@ -144,17 +124,20 @@ $loggedin = false;
 		</div>
 		<div class="dashboard-body">
 			<h2>Sandwichland Checkout</h2>
-					
-						<div class="grid-container">
-		<?php 	echo		'<div class="item0">Currently in your basket:</div>
-							<div class="item1">Name: </div>
-							<div class="item2">No:
-								<div> <button class="counter" v-on:click="quantity++">+</button> <button class="counter" v-on:click="quantity--">-</button> </div>
+				<div class="items-grid-container">
+					Currently in your basket:
+					<div class="item-grid-container" v-for="basket in baskets">
+						<div class="item1">Name: {{ basket.item }} </div>
+						<div class="item2">No: {{basket.quantity}} 
+							<div>
+								<button class="counter" v-on:click="quantity++">+</button>
+								<button class="counter" v-on:click="quantity--">-</button> 
 							</div>
-							<div class="item3">Price: </div>  
-							<div class="item4"><button class="button">Remove</button></div> 
-						  '; ?>
 						</div>
+						<div class="item3">Price: {{basket.price}}</div>  
+						<div class="item4"><button class="button" v-on:click="clearItem">Remove</button></div> 
+					</div>
+				</div>
 				<div class="shipping">
 
 					<label>Address</label>
@@ -171,7 +154,7 @@ $loggedin = false;
 
 				</div>
 				<div> {{addressInput}} {{postcodeInput}} {{cityInput}} {{countyInput}}</div>
-			<button class="button" >Clear order</button>
+			<button class="button" v-on:click="clearBasket">Clear order</button>
 			<a href= "confirmation.php"><button class="button" v-on:click="onSubmit">Confirm order</button></a>
 			<a href= "storePage.php"><button class="button">Back to store page</button></a>
 		</div>
@@ -179,6 +162,6 @@ $loggedin = false;
 	</div>
 	<script src="/node_modules/vue/dist/vue.global.js"></script>
 	<script src="/node_modules/axios/dist/axios.min.js"></script>
-	<script src="../js/checkoutfunction.js" defer></script>
+	<script src="../dist/checkout.js" defer></script>
 </body>
 </html>

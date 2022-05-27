@@ -110,6 +110,6 @@ $loggedin = false;
 </div>
 <script src="/node_modules/vue/dist/vue.global.js"></script>
 <script src="/node_modules/axios/dist/axios.min.js"></script>
-<script src="../js/dashboardfunction.js" defer></script>
+<script src="../dist/dashboard.js" defer></script>
 </body>
 </html>

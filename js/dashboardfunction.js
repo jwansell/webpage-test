@@ -1,3 +1,5 @@
+import {notifications} from '../src/notifications/notifications.js'
+
 Vue.createApp({
     data() {
         return {
@@ -10,9 +12,11 @@ Vue.createApp({
             axios.get('/php/contactAPI.php')
             .then(response => {
                 this.messages = response.data;
+                notifications.success();
             })
             .catch(error => {
                 console.log(error);
+                notifications.error();
             });
        	}
 	},
